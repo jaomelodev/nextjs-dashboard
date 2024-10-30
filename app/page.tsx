@@ -1,11 +1,31 @@
+'use client'
+
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import styles from '@/app/ui/home.module.css';
 import { lusitana } from './ui/fonts';
 import Image from 'next/image';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function Page() {
+  useEffect(() => {
+    window.minhaFuncao = (cpf: string, token: string) => {
+      axios.post(
+        "https://a1e5-2804-1b3-af01-2553-8d1-a1f4-1dc7-1c99.ngrok-free.app/updateFcmToken",
+        {
+          token,
+          document: cpf
+        }
+      ).then((data) => {
+        console.log(data);
+      }).catch(error => {
+        console.log(error)
+      })
+    };
+  }, [])
+
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
