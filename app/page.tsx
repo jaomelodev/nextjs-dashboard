@@ -13,7 +13,7 @@ export default function Page() {
   useEffect(() => {
     window.minhaFuncao = (cpf: string, token: string) => {
       axios.post(
-        "https://a1e5-2804-1b3-af01-2553-8d1-a1f4-1dc7-1c99.ngrok-free.app/updateFcmToken",
+        "https://a1e5-2804-1b3-af01-2553-8d1-a1f4-1dc7-1c99.ngrok-free.app/notifications/updateFcmToken",
         {
           token,
           document: cpf
