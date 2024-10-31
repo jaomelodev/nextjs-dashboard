@@ -1,7 +1,14 @@
 export {};
 
+type UpdateFcmParams = {
+  token: string;
+  cpf: string;
+  customer: string;
+  tenant: string; 
+}
+
 declare global {
   interface Window {
-    minhaFuncao: (cpf: string, token: string) => void;
+    updateUserFcm: (data: UpdateFcmParams) => void;
   }
 }
